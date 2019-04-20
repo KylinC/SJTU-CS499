@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsmath, mathtools,amssymb}
+\usepackage{amsfonts,semantic,colortbl,mathrsfs,stmaryrd}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{graphicx}
+\date{Feb 14, 2012}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{hw}{Problem}
+\newcommand{\xor}{\otimes}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+\begin{document}
+\begin{center}
+{\LARGE\bf Homework 7}\\
+\vspace{2mm}
+\end{center}
+
+\begin{hw}
+\begin{enumerate}
+  \item Prove that, for every integer $n$, there exists a coloring of the edges of the complete graph $K_n$ by two colors so that the total number of monochromatic copies of $K_4$ is at most ${n\choose 4}2^{-5}$.
+  \item Give a randomized algorithm for finding a coloring with at most ${n \choose 4}2^{-5}$ monochromatic (i.e. single-color) copies of $K_4$ that runs in expected time polynomial in $n$.
+\end{enumerate}
+\end{hw}
+
+\begin{sol}
+\renewcommand{\qedsymbol}{}
+\begin{itemize}
+\item [(a)] $X$ is the random variable denoting the number of monochromatics copies of $K_4$. The probability that a certain $4-subset$ forms a monochromatic $K_4$ is $2\times 2^{-6}$, where 2 is for the two different colours. Then, $$E[X]=
+{n\choose 4} \times 2\times 2^ { -6} = {n\choose 4}2^{-5}$$
+\item [(b)] ) Colour edges independently and uniformly. Let $p = Pr(X\leq {n\choose 4}2^{-5})$. Then we have
+$${n\choose 4}2^{-5} = E[X] = \sum_{i \leq {n\choose 4}2^{-5}}{iPr(X=i)} + \sum_{i \geq {n\choose 4}2^{-5}}{iPr(X=i)} \geq p + (1-p)({n\choose 4}2^{-5}+1)$$ which implies that $$\frac{1}{p} \leq {n\choose 4}2^{-5}$$
+Thus, the expected number of samples is at most ${n\choose 4}2^{-5}$. Testing this to see if $X \leq {n\choose 4}2^{-5}$ can be done in $O(n^4)$ time. As such the algorithm can be done in polynomial time.
+\end{itemize}
+\end{sol}
+
+
+\begin{hw}
+Use the Lovasz local lemma to show that if \[4 {k \choose 2} {n \choose {k-2}}2^{1-{k\choose 2}}\leq 1\]
+then it is possible to color the edges of $K_n$ with two colors so that it has no monochromatic(i.e. single color) $K_k$ subgraph.
+\end{hw}
+
+\begin{sol}
+\renewcommand{\qedsymbol}{}
+Consider a random 2-coloring of the graph.
+Let $E_i$ be the case that the ith $k-set$ is a monochromatic clique.
+
+$$Pr(E_i)=2\cdot (\frac{1}{2})^{k\choose 2}=2^{1-{k\choose 2}}$$
+Then we have the number of $k-clique$ is bounded by ${k \choose 2} {n \choose {k-2}}$.
+Thus, whenever 
+$$4 {k \choose 2} {n \choose {k-2}}2^{1-{k\choose 2}}\leq 1$$
+we can apply the general Lovasz local lemma and show that there exists a coloring satisfys the problem requirement.
+
+\end{sol}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: tex-pdf
+%%% TeX-master: t
+%%% End:

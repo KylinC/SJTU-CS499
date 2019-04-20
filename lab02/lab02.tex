@@ -1,0 +1,148 @@
+\documentclass[12pt,a4paper]{article}
+\title{{\textbf{Homework 2}}\vspace{1mm}}
+\author{}
+\date{517030910155}
+\usepackage{amsmath,amscd,amsbsy,amssymb,latexsym,url,bm,amsthm}
+\usepackage{epsfig,graphicx,subfigure}
+\usepackage{enumitem,balance}
+\usepackage{wrapfig}
+\usepackage{mathrsfs,euscript}
+\usepackage[usenames]{xcolor}
+\usepackage{amsfonts,amssymb}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage[vlined,ruled,linesnumbered]{algorithm2e}
+\hypersetup{colorlinks=true,linkcolor=black}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{problem}{Problem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{solution}{Solution}
+\newtheorem{definition}{Definition}
+\theoremstyle{definition}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\newcommand{\postscript}[2]
+ {\setlength{\epsfxsize}{#2\hsize}
+  \centerline{\epsfbox{#1}}}
+
+\renewcommand{\baselinestretch}{1.0}
+
+\setlength{\oddsidemargin}{-0.365in}
+\setlength{\evensidemargin}{-0.365in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{10.1in}
+\setlength{\textwidth}{7in}
+\makeatletter \renewenvironment{proof}[1][Proof] {\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse} \makeatother
+\makeatletter
+\renewenvironment{solution}[1][Solution] {\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse} \makeatother
+
+\begin{document}
+\noindent
+
+%========================================================================
+
+\maketitle
+
+\begin{enumerate}
+\begin{problem}
+Prove the formula
+$$
+ \left\{
+ \begin{matrix}
+   r  \\
+   r  
+  \end{matrix}
+  \right\} \tag{2}+
+  \left\{
+ \begin{matrix}
+   r+1  \\
+   r  
+  \end{matrix}
+  \right\} \tag{2}+
+  \left\{
+ \begin{matrix}
+   r+2  \\
+   r  
+  \end{matrix}
+  \right\} \tag{2}+
+  \cdots +
+  \left\{
+ \begin{matrix}
+   n  \\
+   r  
+  \end{matrix}
+  \right\} \tag{2}=
+  \left\{
+ \begin{matrix}
+   n+1  \\
+   r+1  
+  \end{matrix}
+  \right\} \tag{2}
+$$
+\begin{solution}
+\renewcommand{\qedsymbol}{}
+
+
+\end{solution}
+\end{problem}
+\item
+\begin{problem}
+Let $(X, \preccurlyeq_1), (Y, \preccurlyeq_2)$ be (partially) ordered sets. We say that they are isomorphic if there exists a bijection f : X $\rightarrow$ Y such that for every x, y $\in$ X, we have $x \preccurlyeq_1 y$ if and only if
+$f(x) \preccurlyeq_2 f(y)$.
+
+\begin{solution}
+\item
+\renewcommand{\qedsymbol}{}
+
+\end{solution}
+\end{problem}
+\par
+\begin{problem}
+Prove or disprove: If a partially ordered set $(X, \preccurlyeq)$ has a single minimal element, then it is a smallest element as well.
+\begin{solution}\item
+\renewcommand{\qedsymbol}{}
+
+\end{solution}
+\end{problem}
+\par
+\begin{problem}
+Let $(X, \preccurlyeq)$ and $(X_{'}, \preccurlyeq_{'})$ be partially ordered sets. A mapping f : $X \rightarrow X_{'}$ is called an embedding of $(X, \preccurlyeq)$ into $(X_{'}, \preccurlyeq_{'})$ if the following conditions hold:\item
+\begin{itemize}
+\item f is an injective mapping;
+\item $f(x)\preccurlyeq_{'} f(y)$ if and only if $x \preccurlyeq y$.
+\end{itemize}
+Now consider the following problem:
+\begin{itemize}
+\item [a)]Describe an embedding of the set $\{1, 2\} \times \mathbb{N}$ with the lexicographic ordering into the ordered set $(\mathbb{Q}, \leq)$.
+\item [b)]Solve the analog of a) with the set $N \times N$ (ordered lexicographically) instead of $\{1, 2\} \times N$.
+\end{itemize}
+\begin{solution}\item
+\renewcommand{\qedsymbol}{}
+
+\end{solution}
+\end{problem}
+\par
+\begin{problem}
+Prove the following strengthening of the \textbf{Erdos-Szekeres Lemma}: Let $\mathscr{K}, \mathscr{L}$ be natural numbers. Then every sequence of real numbers of length $\mathscr{K} \mathscr{L} + 1$ contains an nondecreasing subsequence of length $\mathscr{K} + 1$ or a decreasing subsequence of length $\mathscr{L} + 1$.
+\begin{proof}\item 
+\renewcommand{\qedsymbol}{}
+
+\end{proof}
+\end{problem}
+
+
+\end{enumerate}
+
+\vspace{20pt}
+
+
+%========================================================================
+\end{document}

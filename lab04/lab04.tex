@@ -1,0 +1,145 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsmath, mathtools,amssymb}
+\usepackage{amsfonts,semantic,colortbl,mathrsfs,stmaryrd}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{graphicx}
+\date{Feb 14, 2012}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem*{solution}{Solution}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{hw}{Problem}
+\newcommand{\xor}{\otimes}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+\begin{document}
+\begin{center}
+{\LARGE\bf Homework 4}\\
+\vspace{2mm}
+\end{center}
+
+
+
+
+
+
+\begin{hw}
+Express the $n^{th}$ term of the sequences given by the following recurrence relations
+
+\begin{enumerate}
+ \item $a_0=2, a_1=3, a_{n+2}=3a_n - 2a_{n+1} $ $(n=0,1,2,\ldots)$.
+ \item $a_0=1, a_{n+1}=2a_n+3$ $(n=0,1,2,\ldots).$
+\end{enumerate}
+\end{hw}
+
+\begin{solution}\item
+    \begin{itemize}
+      \item [(1)] As we can get the characteristic equation $x^2+2x-3=0$, so $x_1=-3\ and\ x_2=1$, we can assume $a_n=c_1(-3)^n+c_2$.\par
+      Then, we make $n=0\ and\ n=1$, get $c_1+c_2=2;\ -3c_1+c_2=3$, so $c_1=-\frac{1}{4},c_2=\frac{9}{4}$, it means $a_n = -\frac{1}{4}(-3)^n+\frac{9}{4}$.
+      \item [(2)] For special solution, we assume its form folows $a'_n=c_1$, then we can get $c_1=-3$. For homogeneous part, $a_n=c_22^n$, for $a_0=1$, we can get $c_2 = 1$. As is mentioned above, $a_n=-3+2^n$.
+    \end{itemize}
+\end{solution}
+
+\begin{hw}
+Solve the recurrence relation $a_{n+2}=\sqrt{a_{n+1}a_n}$ with initial conditions $a_0=2, a_1=8$ and find $\lim_{n\rightarrow \infty}a_n $.
+\end{hw}
+
+\begin{solution}\item
+    \begin{itemize}
+      \item [(1)] We can use logarithm to simplise the equotion as $\log(a_{n+2})=\frac{1}{2}\log(a_{n+1})+\frac{1}{2}\log(a_{n})$, we define $b_n=\log(a_n)$.\par
+      we can get the characteristic equotion as $2x^2-x-1=0 \Rightarrow x_1=-\frac{1}{2},\ x_2=1$, it means the solution have the form $b_n=c_1+c_2(-\frac{1}{2})^n$, as $b_0=\log(2),b_1=3\log(2)$, we can get $b_n=\frac{7}{3}\log(2)-\frac{4}{3}\log(2)(-\frac{1}{2})^n$. Therefore, if we choose $e=2.718281828\cdots$ as logarithm base, $a_n=exp(\frac{7}{3}\ln(2)-\frac{4}{3}\ln(2)(-\frac{1}{2})^n)$.
+      \item [(2)] As $n \rightarrow \infty$, $a_n \rightarrow 2^{\frac{7}{3}}$.
+    \end{itemize}
+\end{solution}
+
+
+
+\begin{hw}Fill in the blanks with either true ($\checkmark$) or false ($\times$)
+\begin{table}[ht]
+ \centering
+\begin{tabular}{|c|c|c|c|c|}
+ \hline
+  $f(n)$& $g(n)$& $f=O(g)$ & $f=\Omega (g)$& $f=\Theta(g)$ \\ \hline
+  $2n^3+3n$& $100n^2+2n+100$& $\times$ & $\checkmark$ &  $\times$   \\ \hline
+  $50n+\log n$& $10n+\log \log n$&  $\checkmark$  & $\checkmark$ &  $\checkmark$  \\ \hline
+  $50n\log n$& $10n\log \log n$&  $\times$  &  $\checkmark$ &  $\checkmark$  \\ \hline
+  $\log n$& $ \log^2 n$&  $\checkmark$  & $\times$ &  $\times$  \\ \hline
+  $n!$& $ 5^n$&  $\checkmark$  &  $\times$  &  $\times$  \\ \hline
+ \end{tabular}
+\end{table}
+\end{hw}
+
+\begin{hw}
+\begin{enumerate}
+\item Find two functions $f(x)$ and $g(x)$ such that $f(x)\neq O(g(x))$ and $g(x)\neq O(f(x))$.
+\item Furthermore, we say a function $h:\mathbb{R}\rightarrow \mathbb{R}$ is \emph{monotonically increasing} if it satisfies the property `$x\leq y ~\Rightarrow~ h(x)\leq h(y)$'.
+ \\
+ Find two monotonically increasing functions $f(x)$ and $g(x)$ such that $f(x)\neq O(g(x))$ and $g(x)\neq O(f(x))$.
+ \end{enumerate}
+ \vspace{2mm}
+    (Please give the detailed proof that your functions satisfy the requirements.)
+\end{hw}
+
+\begin{solution}\item
+    \begin{itemize}
+        \item [(1)] As we can define a pair of functions to satisfy this situation as folows:\par
+        $$f(x)=x,x \in N$$ 
+        $$ g(x)=\left\{
+            \begin{array}{rcl}
+            x+1       &      & {,x \in Even,}\\
+            x-1     &      & {,x \in Odd.}
+            \end{array} \right. $$
+            For this pair of function, we can find there not exists a specific relation between them, which can satisfy origin situation. 
+        \item [(2)] We can give a pair of functions as follows:\par
+        $$f(x)=x,x \in N$$ 
+        $$ g(x)=\left\{
+            \begin{array}{rcl}
+            x+1       &      & {,x \in Even,}\\
+            x-1     &      & {,x \in Odd.}
+            \end{array} \right. $$
+        For $f(x)$ and $g(x)$, they are both monotonically increasing functions, but we can find:
+        \begin{itemize}
+        	\item if $x \in Odd$, $g(x)<f(x)$, therefore, $g(x)\neq O(f(x))$.
+        	\item if $x \in Even$, $g(x)>f(x)$, therefore, $f(x)\neq O(g(x))$.
+        \end{itemize}
+        As is mentioned above, this pair of functions satisfy this situation.
+    \end{itemize}
+\end{solution}
+
+
+\begin{hw}
+\hspace{1mm}
+\begin{enumerate}[a)]
+  \item Show that the product of all primes $p$ with $m+1<p\leq 2m$ is at most ${2m\choose m}$.
+  \item Using a), prove the estimate $\pi(n)=\mathcal{O}(\frac{n}{\ln n})$, where $\pi(n)$ denotes the number of primes not exceeding the number $n$.
+\end{enumerate}
+\end{hw}
+
+\begin{solution}\item
+    \begin{itemize}
+        \item [(a)] $C_{m+1}^{2m+1} =  {2m+1\choose m+1}= \frac{(2m+1)!}{(m+1)!m!} = \frac{(2m+1)2m\cdots(m+2)}{m(m-1)\cdots 2\cdot 1}$. As we all know this number is an integer, and all the prime number between $m+1$ and $2m$ can't be divided by denominator $m,(m-1),\cdots 2, 1$,it means once $C_{m+1}^{2m+1}$ be diveded by all the prime between $m+1$ and $2m$, it still remains a positive integer(positive integer must be greater than 1). Therefore, the product of all primes between $m+1$ and $2m$ is at most $C_{m+1}^{2m+1}$.
+        \item [(b)] According to a), we have $\Pi_{\frac{n}{2} \leq p \leq n, prime} < C_{\frac{n}{2}}^{n} <4^n$. We can define $t$ as a constant number which is smaller than $\frac{n}{2}$. So we have $t^{\pi(n)-\pi(\frac{n}{2})} < \Pi_{\frac{n}{2} \leq p \leq n, prime} < C_{\frac{n}{2}}^{n} <4^n$. So we can get $\pi(n)-\pi(\frac{n}{2}) \leq \frac{n\ln(4)}{\ln(t)}$, with iteration, we can get $\pi(n) \leq \frac{n\ln(4)}{\ln(t)} \times (2-\frac{2}{n}) < \frac{2n\ln(4)}{\ln(t)}$. We let $n=\frac{1}{2}n}$, it makes $\pi(n) \leq \frac{2n\ln(4)}{\ln(n)-\ln(2)} \leq \frac{4n\ln(4)}{\ln(n)}$, it means $\pi(n)=\mathcal{O}(\frac{n}{\ln n})$.
+    \end{itemize}
+\end{solution}
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: tex-pdf
+%%% TeX-master: t
+%%% End:

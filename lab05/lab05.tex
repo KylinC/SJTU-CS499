@@ -1,0 +1,149 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsmath, mathtools,amssymb}
+\usepackage{amsfonts,semantic,colortbl,mathrsfs,stmaryrd}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{graphicx}
+\date{Feb 14, 2012}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{hw}{Problem}
+\newcommand{\xor}{\otimes}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+\begin{document}
+\begin{center}
+{\LARGE\bf Homework 5}\\
+\vspace{2mm}
+\end{center}
+
+\begin{hw}
+  Which of the following statements about graph $G$ and $H$ are true?
+  \begin{enumerate}
+    \item $G$ and $H$ are isomorphic if and only if for every map $f:V(G)\rightarrow V(H)$ and for any two vertices $u,v\in V(G)$, we have $\{u,v\}\in E(G)\Leftrightarrow \{f(u),f(v)\}\in E(H)$.
+    \item $G$ and $H$ are isomorphic if and only if there exists a bijection $f: E(G)\rightarrow E(H)$.
+    \item If there exists a bijection $f:V(G)\rightarrow V(H)$ such that every vertex $u\in V(G)$ has the same degree as $f(u)$, then $G$ and $H$ are isomorphic.
+    \item If $G$ and $H$ are isomorphic, then there exists a bijection $f:V(G)\rightarrow V(H)$ such that every vertex $u\in V(G) $ has the same degree as $f(u)$.
+    \item If $G$ and $H$ are isomorphic, then there exists a bijection $f: E(G)\rightarrow E(H)$.
+    \item $G$ and $H$ are isomorphic if and only if there exists a map $f:V(G)\rightarrow V(H)$ such that for any two vertices $u,v\in V(G)$, we have $\{u,v\}\in E(G)\Leftrightarrow \{f(u),f(v)\}\in E(H)$.
+    \item Every graph on $n$ vertices is isomorphic to some graph on the vertex set $\{1,2,\ldots, n\}$.
+    \item Every graph on $n\geq 1$ vertices is isomorphic to infinitely many graphs.
+  \end{enumerate}
+\end{hw}
+
+\begin{sol}
+\renewcommand{\qedsymbol}{}
+    \begin{itemize}
+    	\item [(1)] False, not for every map, definition only require that there exist a biejective function.
+    	\item [(2)] False, because the number od vertices may not equal.
+    	\item [(3)] False, definition require edges' mapping relation.
+    	\item [(4)] True, isomorphic graphs must have the same degree sequence.
+    	\item [(5)] True, according to origin definition.
+    	\item [(6)] True, according to origin definition.
+    	\item [(7)] False, definition require edges' mapping relation.
+    	\item [(8)] True, we can re-define all the graphs' vertices to get a totally new isomorphic graph, so it's infinite for all the possible isomorphic graphs. 
+    \end{itemize}
+\end{sol}
+
+
+
+\begin{hw}
+
+\noindent Two simple graphs $G=(V,E)$ and $G'=(V',E')$. A map $f: V\rightarrow V'$. Now if $f$ satisfies:
+\begin{enumerate}[i)]
+  \item It is a bijective function;
+  \item $\{x,y\}\in E$ if and only if $\{f(x), f(y)\}\in E'$;
+\end{enumerate}
+Then we say that graph $G$ and $G'$ are \emph{isomorphic} to each other. We use  $G\cong G'$ to stand for the isomorphism relation.
+
+Consider the following questions:
+\begin{enumerate}
+  \item $G=K_n$ (Recall: $K_n$ is a clique with $n$ vertices), $g: V\rightarrow V'$ is a function which only satisfies requirement ii). Prove that $G'$ must contain a subgraph which is a clique with $n$-vertices.
+  \item $G=K_{n,m}$ (Recall: $K_{n,m}$ is the so-called \emph{complete bipartite graphs}), $g$ is the same as in question 1.  What will be the simplest $G'$ that is related to $G$ under the new relation.
+\end{enumerate}
+
+\begin{sol}
+\renewcommand{\qedsymbol}{}
+    \begin{itemize}
+    	\item [(1)] Now that we have $n$ points and $\frac{n(n-1)}{2}$ edges in $G$. acoording to ii, we will know $G'$ have $\frac{n(n-1)}{2}$ edges at most. So our aim can be to prove $G'$ have $n$ points. According to ii, we know for every point in $G'$, it's linked to all other points. It means, for a $k-point$ clique in $G'$, it has $E'(k)=1+2+3+\cdots+k-1=\frac{k(k-1)}{2}$.Therefore, $G'$ must have a clique with $n$ point.
+    	\item [(2)] Once we define, for $x \in V$, there exist $\{x, x\} \in E$. Therefore, we have a simplest graph $G'$ only have two separate points.
+    	
+    \end{itemize}
+\end{sol}
+\end{hw}
+
+
+\begin{hw}
+How many graphs on the vertex set $\{1,2,\ldots,2n\}$ are isomorphic to the graph consisting of $n$ vertex-disjoint edges (i.e. with edge set \{\{1,2\},\{3,4\},\ldots, \{2n-1,2n\}\}?
+
+\begin{sol}
+\renewcommand{\qedsymbol}{}
+    There is a one to one correspondence between graphs which are isomorphic to the given graph and the number of possible partitions of [1,2n]=$\left\{1,2,3\dots 2n \right \}$ into n sets each of size 2.\par
+    To create such a partition, we can choose the first two elements in $\binom{2n}{2}$ ways
+
+    The next two elements can be chosen in $\binom{2n-2}{2}$ ways and so on till $\binom{2n-(2n-2)}{2}$ is the number of ways of choosing the last pair of adjacent edges
+ 
+    Thus, the number of such sets is $\prod_{i=0}^{(n-1)}\binom{2n-2i}{2}$
+
+    But this also accounts for the relative order of the 2-sets themselves which is irrelevant
+
+    Thus, the correct number of partitions is
+
+    $$\frac{1}{n!}\prod_{i=0}^{(n-1)}\binom{2n-2i}{2}$$
+
+    And so, we have
+
+    $$\frac{1}{n!}\prod_{i=0}^{(n-1)}\binom{2n-2i}{2}=\prod_{i=0}^{n-1}(2n-2i-1)=(2n-1)\cdot (2n-3)\dots 1=(2n-1)!!$$
+
+    Which can also be written as $$\prod_{i=0}^{n-1}(2n-2i-1)=\frac{(2n)!}{2^{n}(n)!}$$
+\end{sol}
+\end{hw}
+
+
+\begin{hw}
+Construct an example of a sequence of length $n$ in which each term is some of the numbers $1,2,\ldots, n-1$ and which has an even number of odd terms, and yet the sequence is not a graph score. Show why it is not a graph score.
+
+\begin{sol}\par
+\renewcommand{\qedsymbol}{}
+     \begin{itemize}
+      \item If n is odd, we can get a sequence with $n-1$ of $1$ and $1$ of $3$, therefore, the sum of all vertice' degree is odd, which is impossible.
+      \item If n is even, we can get a sequence with $n-2$ of $1$, $2$ of $n-2$, therefore, $2$ of $n-2$ can't be satisfied because there only have $n-2$ of $1$ vertices.
+     \end{itemize}
+\end{sol}
+
+\end{hw}
+
+\begin{hw}
+Let $G$ be a graph with 9 vertices, each of degree 5 or 6. Prove that it has at least 5 vertices of degree 6 or at least 6 vertices of degree 5.
+\item
+\begin{sol}\par
+\renewcommand{\qedsymbol}{}
+     Define $G$ a graph with k vertices of degree $6$.\par
+     Then we can suppose $k < 5$ ,it means either $k = 4$ or $k \leq 3$. For the former case, it implies that there exist $9 − 4 = 5$ vertices of degree 5 in $G$, it means sum of degree is odd, which is contradictory to fundamental theory. For the latter case, it implies that $G$ contains six or more vertices of degree $5$, as  original problem required.
+\end{sol}
+
+\end{hw}
+
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: tex-pdf
+%%% TeX-master: t
+%%% End:

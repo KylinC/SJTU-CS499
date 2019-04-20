@@ -1,0 +1,136 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsmath, mathtools,amssymb}
+\usepackage{amsfonts,semantic,colortbl,mathrsfs,stmaryrd}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{graphicx}
+\date{Feb 14, 2012}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{hw}{Problem}
+\newcommand{\xor}{\otimes}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+\begin{document}
+\begin{center}
+{\LARGE\bf Homework 6}\\
+\vspace{2mm}
+\end{center}
+\begin{hw}
+Given a sequence $(d_1, d_2, \ldots, d_n)$ of  positive integers (where $n\geq 1$):
+\begin{enumerate}[(i)]
+  \item There exists a tree with score $(d_1, d_2, \ldots, d_n)$.
+  \item $\sum_{i=1}^{n}d_i=2n-2$.
+\end{enumerate}
+Prove that (i) and (ii) are equivalent.
+\end{hw}
+
+\begin{sol}\par
+\renewcommand{\qedsymbol}{}
+\begin{itemize}
+ \item If a sequence $(d1,\cdots,dn)$ is a degree sequence of a tree T = $(V, E)$, then $\sum_{i=1}^n d_i = 2|E|$, but in a tree, $|E| = n - 1$, so $\sum_{i=1}^n d_i = 2|E| = 2(n - 1)$
+ \item Now that the sequence have $n$ item, we ca easily claim that there must exsit $i$ satisefy $d_i=1$, otherwise $\sum_{i=1}^n d_i >= 2n$, since $d_i$ is an unordered sequence, we assume $d_n = 1$. Samely, we can assume $d_{n-1} >=2$. Then we can find the $n-1$ item sequence $(d_1'=d_1, d_2'=d_2, \cdots,d_{n-1}'=d_{n-1}-1)$ have $2\{(n-1)-1\}$ degree sum, which confirms to $\sum_{i=1}^n d_i = 2|E| = 2(n - 1)$. For $n = 2$, is trivial to find the proof established, by mathematical induction, we can claim the total proof established.
+ \end{itemize}
+\end{sol}
+
+\begin{hw}
+Find an example to verify the claim that `(pairwise) independence does not  imply mutual independence'. Pls give a detailed proof.
+\end{hw}
+
+\begin{sol}\par
+\renewcommand{\qedsymbol}{}
+\begin{itemize}
+\item We first assume complete event space $\Omega = \left\{{1, 2, 3, 4}\right\}$, with each $\omega \in \Omega$ equally likely to occur:
+$\forall \omega \in \Omega: \Pr \left({\omega}\right) = \frac{1}{4}$\par
+Consider these events:
+$A = \left\{{1, 2}\right\}, B = \left\{{1, 3}\right\}, C = \left\{{1, 4}\right\}$\par
+It is obvious to see that:
+$\Pr \left({A}\right) = \Pr \left({B}\right) = \Pr \left({C}\right) = \frac{1}{2}$\par
+We also have that:
+$\Pr \left({A \cap B}\right) = \Pr \left({A \cap C}\right) = \Pr \left({B \cap C}\right) = \Pr \left({\left\{{1}\right\}}\right) = \frac{1}{4}$
+Thus:
+$$\Pr \left({A}\right) \Pr \left({B}\right) = \Pr \left({A \cap B}\right)$$
+$$\Pr \left({A}\right) \Pr \left({C}\right) = \Pr \left({A \cap C}\right)$$
+$$\Pr \left({B}\right) \Pr \left({C}\right) = \Pr \left({B \cap C}\right)$$
+Thus the events $A, B, C$ are pairwise independent.\par
+Then, we consider:
+$$\Pr \left({A \cap B \cap C}\right) = \Pr \left({\left\{{1}\right\}}\right) = \frac{1}{4}$$
+But:
+$$\Pr \left({A}\right) \Pr \left({B}\right) \Pr \left({C}\right) = \dfrac{1}{8} \ne \Pr \left({A \cap B \cap C}\right)$$
+So, although $\mathcal S$ is pairwise independent, it is not independent.
+\end{itemize}
+\end{sol}
+
+\begin{hw}
+Show that, if $E_1, E_2, \ldots, E_n$ are mutually independent, then so are $\overline{E_1}, \overline{E_2},\ldots, \overline{E_n}$.
+\end{hw}
+
+\begin{sol}\par
+\renewcommand{\qedsymbol}{}
+We can now prove that $\overline{E_1}, \overline{E_2}$ are matually independent.\par
+Since $E_1$ and $E_2$ are matually independent, $P(E_1E_2) = P(E_1)P(E_2) = 1 - P(\overline{E_1}) - P(\overline{E_2}) + P(\overline{E_1})P(\overline{E_2})$. Then for $P(\overline{E_1}\overline{E_2}) = 1 - P(E_1+E_2) = 1-P(E_1)-P(E_2)+P(E_1E_2)=P(\overline{E_1})P(\overline{E_2})$. For $n$ matually independent $E_i$ ,we can use recurrsive induction to find $\overline{E_1}, \overline{E_2}, \ldots, \overline{E_n}$ are mutually independent, too.
+
+\end{sol}
+
+
+\begin{hw} The problem on the 37$^{st}$ page of slide on `\emph{Probability: a quick review}' (i.e., \emph{the more complicated example}). (What is $Pr(U|W)$ ?)
+
+\end{hw}
+
+\begin{sol}\par
+\renewcommand{\qedsymbol}{}
+According to $$Pr(U|W) = \frac{Pr(UW)}{Pr(W)}$$
+As we can get $$Pr(UW)=Pr(UW|R)Pr(R)+Pr(UW|\lnot R)Pr(\lnot R)=0.9\times 0.7\times 0.8 + 0.2\times 0.4\times 0.2=0.52$$
+$$Pr(W)=Pr(W|R)Pr(R)+Pr(W|\lnot R)Pr(\lnot R)=0.7\times 0.8+0.4\times 0.2=0.64$$
+Therefore, $Pr(U|W)=\dfrac{13}{16}$
+\end{sol}
+
+
+\begin{hw} Suppose $X$ and $Y$ are two independent random variables, show that
+\[ E(X\cdot Y)=E[X]\cdot E[Y]\].
+\end{hw}
+
+\begin{sol}\par
+\renewcommand{\qedsymbol}{}
+According to definition of expectation, we have:
+$$E(X\cdot Y)=\sum_x\sum_y xy\cdot p_{X,Y}(x,y)
+=\sum_x\sum_y x p_{X}(x)\cdot y p_{Y}(y)
+=(\sum_x x\cdot p_{X}(x))(\sum_y y\cdot p_{Y}(y))
+=E[X]\cdot E[Y]$$
+\end{sol}
+
+
+\begin{hw}
+ A monkey types on a 26 -letter keyboard that has lowercase letters only.
+Each letter is chosen independently and uniformly at random from the alphabet. If the
+monkey types 1,000,000 letters. what is the expected number of times the sequence
+``proof'' appears?
+\end{hw}
+
+\begin{sol}\par
+\renewcommand{\qedsymbol}{}
+$$Pr = \sum_i^k=\frac{C_{10000-5i+i}^i}{26^{1000000}}$$
+In this problem, $k = \lfloor \dfrac{1000000}{26} \rfloor=38461$.
+\end{sol}
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: tex-pdf
+%%% TeX-master: t
+%%% End:
