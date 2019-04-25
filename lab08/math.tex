@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsmath, mathtools,amssymb}
+\usepackage{amsfonts,semantic,colortbl,mathrsfs,stmaryrd}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{graphicx}
+\date{Feb 14, 2012}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{hw}{Problem}
+\newcommand{\xor}{\otimes}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+\begin{document}
+\begin{center}
+{\LARGE\bf Homework 8}\\
+\vspace{2mm}
+\end{center}
+
+\begin{hw}
+Show that, for constant $p\in(0,1)$, almost no graph in $\mathcal{G}(n,p)$ has a separating complete subgraph.
+\end{hw}
+
+\begin{sol}
+\renewcommand{\qedsymbol}{}
+The probability of k-subgraph exist $$P = \sum_{i=1}^{k-1}{n\choose k}p^{k\choose 2}(1-p)^{{n\choose 2}-{k\choose 2}}$$
+We assume $r=\max\{p, 1-p\}$, then
+$$P \leq \sum_{i=1}^{k-1}{n\choose k}r^{n\choose 2} \leq 2^{n}r^{n\choose 2} \rightarrow 0\ as\ n\ \rightarrow \infty $$
+Which means almost no graph in $\mathcal{G}(n,p)$ has a separating complete subgraph.
+\end{sol}
+
+\begin{hw}
+What is the expected number of trees with $k$ vertices in $G\in \mathcal{G}(n,p)$?
+\end{hw}
+\begin{sol}
+\renewcommand{\qedsymbol}{}
+For $n$ different nodes, there are $n^{n-2}$ types of tree. 
+Refering to G(n,p) model, we can give the Expectation: 
+$$n^{(n-2)} \times C_n^{k}p^{k-1}(1-p)^{{k\choose 2}-k+1}$$
+\end{sol}
+
+\begin{hw}
+Show that if almost all $G\in \mathcal{G}(n,p)$ have a graph property $\mathcal{P}_1$ and almost all $G\in \mathcal{G}(n,p)$ have a graph property $\mathcal{P}_2$, then almost all $G\in \mathcal{G}(n,p)$ have both properties.
+\end{hw}
+
+\begin{sol}\par
+\renewcommand{\qedsymbol}{}
+Once almost all $G\in \mathcal{G}(n,p)$ have both properties, it means $G$ holds $\mathcal{P}_{1} \cap \mathcal{P}_{2}$. Therefore, we will show that the property $\mathcal{P}_{1} \cap \mathcal{P}_{2}$ holds for almost all graphs.\par
+We show that for any $\epsilon > 0$, there exists $n \in N$ such that $P_{G(n,p)}(G \in P_1\cap P_2) \geq 1 - \epsilon$. For both $i = 1, 2$, Since $P_i$ is a graph property that holds for almost all graphs in $G(n, p)$, there exists $n_i \in N$ such that $P_{G(n,p)}(G \in Pi) > 1 - \frac{\epsilon}{2}$. Therefore, for
+$n \geq \max\{n_1, n_2\}$, we have $P_{G(n,p)}(G \in \overline{ P_1 \cap P_2 }) = P_{G(n,p)}(G \in \overline{P1} \cup \overline{P2}) \leq \frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$. Thus, $P_{G(n,p)}(G \in P1 \cap P2) = 1 - P_{G(n,p)}(G \in \overline{P1 \cap P2}) \geq 1- \epsilon$.
+\end{sol}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: tex-pdf
+%%% TeX-master: t
+%%% End:
