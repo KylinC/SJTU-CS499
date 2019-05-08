@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{txfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsmath, mathtools,amssymb}
+\usepackage{amsfonts,semantic,colortbl,mathrsfs,stmaryrd}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{graphicx}
+\date{Feb 14, 2012}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{hw}{Problem}
+\newcommand{\xor}{\otimes}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+\begin{document}
+\begin{center}
+{\LARGE\bf Homework 9}\\
+\vspace{2mm}
+\end{center}
+
+\begin{hw}
+Explain how the volume of a ball in high dimensions can simultaneously be in a narrow slice at the equator and also be concentrated in a narrow annulus at the surface of the ball.
+\end{hw}
+
+\begin{sol}
+\renewcommand{\qedsymbol}{}
+We know that no matter what distribution we use, the s scattering points will near the surface because, if we build the n-dimension ball with radius $r=1$, for its volume
+$$V \propto r^{n}\ ,\ \forall x<r, \lim_{n\rightarrow \infty }V'=0 $$  
+Therefore, we just need to let the scattering points locate at the equator.
+We know that once $x\sim N(0,1)$ random d-dimensional $x_1,x_2$ are approximately
+ orthogonal. So we can let $x_{1}$ be pole, then $x_{2}$ locates at narrow slice at the equator.
+\end{sol}
+
+\begin{hw}
+Find the singular value decomposition of the following matrix
+
+$$A=\left(
+  \begin{array}{ccc}
+    1 & 0 & 1 \\
+    0 & 1 & -1 \\
+  \end{array}
+\right).$$
+\end{hw}
+
+\begin{sol}
+\renewcommand{\qedsymbol}{}
+According to SVD, we can get
+$$M=\left(
+  \begin{array}{ccc}
+    \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+    \frac{-1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+  \end{array}
+\right)\times
+\left(
+  \begin{array}{ccc}
+    \sqrt{3} & 0 & 0 \\
+    0 & 1 & 0 \\
+  \end{array}
+\right)
+\times
+\left(
+  \begin{array}{ccc}
+    \frac{1}{\sqrt{6}} & \frac{1}{\sqrt{2}} & \frac{-1}{\sqrt{3}} \\
+    \frac{-1}{\sqrt{6}} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{3}} \\
+    \frac{2}{\sqrt{6}} & 0 & \frac{1}{\sqrt{3}} \\
+  \end{array}
+\right)=
+\left(
+  \begin{array}{ccc}
+    \frac{\sqrt{3}}{\sqrt{12}}-\frac{1}{\sqrt{12}} & \frac{\sqrt{3}}{2}+
+    \frac{1}{2} & \frac{-1}{\sqrt{2}}+\frac{1}{\sqrt{6}} \\
+    \frac{\sqrt{-3}}{\sqrt{12}}-\frac{1}{\sqrt{12}} & \frac{\sqrt{3}}{-2}+
+    \frac{1}{2} & \frac{1}{\sqrt{2}}+\frac{1}{\sqrt{6}} \\
+  \end{array}
+\right)
+$$
+\end{sol}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: tex-pdf
+%%% TeX-master: t
+%%% End:
